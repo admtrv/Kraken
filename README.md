@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/main/resources/images/icons/icon_small.png" alt="Logo" width="250">
+  <img src="src/main/resources/images/icons/icon_small.png" alt="Logo" width="200">
 </p>
 
 <h1 align="center">Nebula Cloud Service</h1>
