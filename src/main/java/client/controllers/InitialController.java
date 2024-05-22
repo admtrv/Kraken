@@ -1,9 +1,9 @@
-package controllers;
+package client.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class FirstController {
+public class InitialController {
     @FXML
     private Label welcomeText;
 

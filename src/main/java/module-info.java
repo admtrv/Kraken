@@ -2,7 +2,7 @@ module main.nebula {
     requires javafx.controls;
     requires javafx.fxml;
 
-
-    exports controllers;
-    opens controllers to javafx.fxml;
+    exports client;
+    exports client.controllers;
+    opens client.controllers to javafx.fxml;
 }
