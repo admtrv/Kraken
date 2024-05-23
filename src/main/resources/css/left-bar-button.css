@@ -1,0 +1,18 @@
+.button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5;
+    -fx-text-fill: #c0c0c0;
+    -fx-font-family: "Fira Mono Medium";
+    -fx-font-size: 14px;
+    -fx-padding: 5 5 5 5;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.button:focused {
+    -fx-background-color: #252525;
+}

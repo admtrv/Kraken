@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="680.0" prefWidth="1210.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.MainController">
+    <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: #1c1c1c; -fx-border-color: #282828;" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+        </padding>
+      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0">
+         <children>
+            <Text fill="SILVER" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nebula" wrappingWidth="86.90936231613159">
+               <font>
+                  <Font name="Fira Mono Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </Pane>
+        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onLibraryButton" prefWidth="230.0" stylesheets="@../css/left-bar-button.css" text="Library" />
+        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onSettingsButton" stylesheets="@../css/left-bar-button.css" text="Settings" />
+    </VBox>
+    <VBox HBox.hgrow="ALWAYS">
+        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" prefWidth="770.0" spacing="10" style="-fx-background-color: #1c1c1c; -fx-border-color: #282828;">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <Button onAction="#onAddNewGameButton" prefHeight="31.0" prefWidth="132.0" stylesheets="@../css/top-bar-button.css" text="Add New Game" />
+            <Button onAction="#onProfileButton" prefHeight="50.0" prefWidth="50.0" stylesheets="@../css/profile-button.css" text="A" />
+        </HBox>
+        <VBox fx:id="contentArea" alignment="CENTER" spacing="10" style="-fx-background-color: #1c1c1c; -fx-border-color: #282828;" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+        </VBox>
+    </VBox>
+</HBox>
