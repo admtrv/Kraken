@@ -15,7 +15,7 @@
         </padding>
       <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0">
          <children>
-            <Text fill="SILVER" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nebula" wrappingWidth="86.90936231613159">
+            <Text fill="SILVER" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kraken" wrappingWidth="86.90936231613159">
                <font>
                   <Font name="Fira Mono Bold" size="24.0" />
                </font>
