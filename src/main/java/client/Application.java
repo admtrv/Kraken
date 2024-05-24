@@ -1,18 +1,24 @@
 package client;
 
-import client.monitoring.DirectoryChangeMonitor;
+import client.session.*;
+import client.entities.*;
+import client.monitoring.*;
+
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Application extends javafx.application.Application {
+    private final String ICON_PATH = "/images/logo/logo.png";
     @Override
     public void start(Stage stage) {
+        // Чтение конфигурации
+        Config config = CurrentConfig.getInstance().getConfig();
+
         // Инициализация начального состояния окна приложения
-        stage.setTitle("Kraken");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/icons/icon.png")));
+        stage.setTitle(config.getAppName());
+        stage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_PATH)));
         stage.setMinWidth(1020);
         stage.setMinHeight(540);
 

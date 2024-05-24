@@ -11,9 +11,10 @@ import java.io.IOException;
 public class Router {
     private static MainController mainController;
 
+    private static String MAIN_LAYOUT_PATH = "/fxml/main-layout.fxml";
     public static void init(Stage stage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Router.class.getResource("/fxml/main-layout.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Router.class.getResource(MAIN_LAYOUT_PATH));
             Scene scene = new Scene(fxmlLoader.load());
             mainController = fxmlLoader.getController();
             stage.setScene(scene);

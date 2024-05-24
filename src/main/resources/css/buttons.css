@@ -1,0 +1,46 @@
+.left-bar-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5;
+    -fx-text-fill: #c0c0c0;
+    -fx-font-family: "Fira Mono Medium";
+    -fx-font-size: 14px;
+    -fx-padding: 10 10 10 10; /* Отступы: верх, правый, нижний, левый */
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.left-bar-button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.left-bar-button:focused {
+    -fx-background-color: #252525;
+}
+
+.top-bar-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5;
+    -fx-text-fill: #c0c0c0;
+    -fx-font-family: "Fira Mono Medium";
+    -fx-font-size: 14px;
+    -fx-padding: 10 10 10 10;
+    -fx-border-color: transparent;
+}
+
+.top-bar-button:hover {
+    -fx-background-color: #2a2a2a;
+}
+
+.profile-button {
+    -fx-background-color: #252525;
+    -fx-background-radius: 30;
+    -fx-text-fill: #c0c0c0;
+    -fx-font-family: "Fira Mono Medium";
+    -fx-font-size: 16px;
+    -fx-padding: 5 5 5 5;
+    -fx-border-color: transparent;
+}
+
+.profile-button:hover {
+    -fx-background-color: #303030;
+}

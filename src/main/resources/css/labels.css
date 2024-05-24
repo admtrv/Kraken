@@ -1,0 +1,16 @@
+.app-name-label{
+    -fx-text-fill: #c0c0c0;
+    -fx-font-family: "Fira Mono";
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+    -fx-padding: 5 5 5 5;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.version-label{
+    -fx-text-fill: #c0c0c0;
+    -fx-font-family: "Fira Mono";
+    -fx-font-size: 12px;
+    -fx-padding: 5 5 5 5;
+    -fx-alignment: CENTER_LEFT;
+}
