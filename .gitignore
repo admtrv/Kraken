@@ -36,3 +36,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Env ###
+.env
+
+### Local Data ###
+src/main/resources/states
+src/main/resources/library.json
+src/main/resources/steam-games.json

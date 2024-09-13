@@ -2,6 +2,7 @@ module main.nebula {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;
+    requires org.apache.commons.text;
 
     exports client;
     exports client.controllers;

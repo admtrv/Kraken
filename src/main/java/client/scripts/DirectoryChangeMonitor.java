@@ -1,4 +1,4 @@
-package client.monitoring;
+package client.scripts;
 
 import java.io.*;
 import java.nio.file.*;
@@ -6,25 +6,22 @@ import java.nio.file.attribute.*;
 import java.security.*;
 import java.util.*;
 
-public class DirectoryChangeMonitor implements Runnable{
+public class DirectoryChangeMonitor{
+    private final Path directoryFilePath; // Путь к директории, которую необходимо отслеживать
+    private final Path stateFilePath; // Путь к файлу, в котором хранится сохраненное состояние директории
 
-    // Путь к основной директории, которую необходимо отслеживать
-    private final Path mainDirectory;
-    // Путь к файлу, в котором хранится сохраненное состояние директории
-    private final Path stateFile;
-
-    // Конструктор инициализирует пути к основной директории и файлу состояния
-    public DirectoryChangeMonitor(Path mainDirectory, Path stateFile) {
-        this.mainDirectory = mainDirectory;
-        this.stateFile = stateFile;
+    public DirectoryChangeMonitor(Path directoryFilePath, Path stateFilePath) {
+        this.directoryFilePath = directoryFilePath;
+        this.stateFilePath = stateFilePath;
     }
 
-    @Override
-    public void run() {
+    // Метод для запуска процесса мониторинга изменений в директории
+    public void monitor() {
         try {
             // Сравнение текущего состояния директории с сохраненным
             comparePreviousState();
         } catch (IOException | ClassNotFoundException | NoSuchAlgorithmException e) {
+
             System.err.println("An error occurred while comparing previous state: " + e.getMessage());
         }
     }
@@ -34,7 +31,7 @@ public class DirectoryChangeMonitor implements Runnable{
         // Карта для хранения хэшей файлов
         Map<String, String> fileHashes = new HashMap<>();
         // Обход всех файлов в директории
-        Files.walkFileTree(mainDirectory, new SimpleFileVisitor<>() {
+        Files.walkFileTree(directoryFilePath, new SimpleFileVisitor<>() {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 // Добавление хэша файла в карту
@@ -43,7 +40,7 @@ public class DirectoryChangeMonitor implements Runnable{
             }
         });
         // Сохранение хэшей в файл состояния
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(stateFile.toFile()))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(stateFilePath.toFile()))) {
             oos.writeObject(fileHashes);
         }
     }
@@ -51,7 +48,7 @@ public class DirectoryChangeMonitor implements Runnable{
     @SuppressWarnings("unchecked")
     public void comparePreviousState() throws IOException, ClassNotFoundException, NoSuchAlgorithmException {
         // Если файл состояния не существует, сохраняем текущее состояние
-        if (!Files.exists(stateFile)) {
+        if (!Files.exists(stateFilePath)) {
             System.out.println("No previous state found. Saving current state.");
             saveCurrentState();
             return;
@@ -59,14 +56,14 @@ public class DirectoryChangeMonitor implements Runnable{
 
         // Чтение предыдущего состояния из файла
         Map<String, String> previousFileHashes;
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(stateFile.toFile()))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(stateFilePath.toFile()))) {
             previousFileHashes = (Map<String, String>) ois.readObject();
         }
 
         // Карта для хранения текущих хэшей файлов
         Map<String, String> currentFileHashes = new HashMap<>();
         // Обход всех файлов в директории
-        Files.walkFileTree(mainDirectory, new SimpleFileVisitor<>() {
+        Files.walkFileTree(directoryFilePath, new SimpleFileVisitor<>() {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 // Добавление хэша файла в карту

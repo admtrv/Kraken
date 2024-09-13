@@ -14,31 +14,19 @@ public class Config {
         return appName;
     }
 
-    public void setAppName(String appName) {
-        this.appName = appName;
-    }
 
     public String getVersion() {
         return version;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
 
     public List<String> getSupportedLanguages() {
         return supportedLanguages;
     }
 
-    public void setSupportedLanguages(List<String> supportedLanguages) {
-        this.supportedLanguages = supportedLanguages;
-    }
 
     public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String inceptionDate) {
-        this.releaseDate = inceptionDate;
-    }
 }

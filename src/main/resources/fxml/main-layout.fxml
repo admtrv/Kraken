@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="680.0" prefWidth="1210.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.MainController">
-    <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="250.0" spacing="15.0" style="-fx-background-color: #1c1c1c; -fx-border-color: #282828;" VBox.vgrow="ALWAYS">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="680.0" prefWidth="1175.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.MainController">
+    <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="220.0" spacing="15.0" style="-fx-background-color: #1c1c1c; -fx-border-color: #282828;" VBox.vgrow="ALWAYS">
         <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
         </padding>
-        <VBox spacing="7.0" VBox.vgrow="ALWAYS">
-            <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="218.0">
+        <VBox prefHeight="609.0" prefWidth="180.0" spacing="7.0" VBox.vgrow="ALWAYS">
+            <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="170.0">
                 <children>
                     <Label fx:id="appNameLabel" layoutY="3.0" styleClass="app-name-label" stylesheets="@../css/labels.css" text="App Name" />
                 </children>
@@ -66,7 +66,7 @@
                     </HBox>
                 </graphic>
             </Button>
-            <Pane VBox.vgrow="ALWAYS" />
+            <Pane prefHeight="450.0" prefWidth="146.0" VBox.vgrow="ALWAYS" />
         </VBox>
         <Label fx:id="versionLabel" alignment="BOTTOM_LEFT" prefHeight="7.0" prefWidth="218.0" styleClass="version-label" stylesheets="@../css/labels.css" text="Version" VBox.vgrow="NEVER" />
     </VBox>
@@ -102,10 +102,6 @@
                 </cursor>
             </Button>
         </HBox>
-        <VBox fx:id="contentArea" alignment="CENTER" spacing="10" style="-fx-background-color: #1c1c1c; -fx-border-color: #282828;" VBox.vgrow="ALWAYS">
-            <padding>
-                <Insets bottom="10" left="10" right="10" top="10" />
-            </padding>
-        </VBox>
+        <VBox fx:id="contentArea" alignment="CENTER" style="-fx-background-color: #1c1c1c; -fx-border-color: #282828;" VBox.vgrow="ALWAYS" />
     </VBox>
 </HBox>

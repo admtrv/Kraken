@@ -1,13 +1,14 @@
 package client;
 
+import client.loading.*;
 import client.session.*;
 import client.entities.*;
-import client.monitoring.*;
+import client.scripts.*;
 
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.List;
 
 public class Application extends javafx.application.Application {
     private final String ICON_PATH = "/images/logo/logo.png";
@@ -19,23 +20,29 @@ public class Application extends javafx.application.Application {
         // Инициализация начального состояния окна приложения
         stage.setTitle(config.getAppName());
         stage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_PATH)));
-        stage.setMinWidth(1020);
+        stage.setMinWidth(955);
         stage.setMinHeight(540);
 
-        // Инициализация роутера и загрузка основного макета
+        // Инициализация роутера и загрузка основного содержимого
         Router.init(stage);
-        Router.loadContent("initial-content.fxml");
+        Router.loadContent("library-content.fxml");
 
-        // Указываем путь к главной папке игры
-        Path dontStarveDirectory = Paths.get("C:/Users/DAnto/Downloads/Dont Starve");
-        Path dontStarveState = Paths.get("dont_starve_state.dat");
-        // Создаем наблюдателя за изменениями
-        DirectoryChangeMonitor dontStarveMonitor = new DirectoryChangeMonitor(dontStarveDirectory, dontStarveState);
-        // Запускаем наблюдателя за изменениями в отдельном потоке
-        Thread monitorThread = new Thread(dontStarveMonitor);
-        // Делаем поток демоном, чтобы он завершался при закрытии приложения
-        monitorThread.setDaemon(true);
-        monitorThread.start();
+        // Загрузка сохраненных игр из JSON
+        GameLoader gameLoader = new GameLoader();
+        List<Game> games = gameLoader.loadGames();
+
+        // Запуск мониторинга для каждой сохраненной игры
+        for (Game game : games) {
+            Path gameFolderPath = game.getGameFolderPath();
+            Path stateFilePath = game.getStateFilePath();
+
+            // Создание и запуск мониторинга в отдельном потоке
+            new Thread(() -> {
+                DirectoryChangeMonitor monitor = new DirectoryChangeMonitor(gameFolderPath, stateFilePath);
+                monitor.monitor();
+            }).start();
+        }
+
     }
 
     public static void main(String[] args) {

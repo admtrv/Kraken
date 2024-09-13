@@ -1,11 +1,11 @@
 package client;
 
-import client.controllers.MainController;
+import client.controllers.*;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Router {

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="467.0" prefWidth="260.0" style="-fx-background-color: #1c1c1c; -fx-border-color: #282828; -fx-padding: 10;" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.SettingsController">
+    <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="507.0" prefWidth="238.0" stylesheets="@../css/scroll.css" VBox.vgrow="ALWAYS">
+        <content>
+            <VBox prefHeight="490.0" prefWidth="236.0">
+                <children>
+                </children>
+            </VBox>
+        </content>
+    </ScrollPane>
+    <HBox alignment="CENTER" prefHeight="0.0" prefWidth="238.0" VBox.vgrow="NEVER">
+        <Button mnemonicParsing="false" onAction="#onUpdateGameCatalogueButton" prefHeight="0.0" prefWidth="225.0" styleClass="settings-button" stylesheets="@../css/buttons.css" text="Update Game Catalogue" />
+    </HBox>
+</VBox>
