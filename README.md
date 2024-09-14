@@ -8,7 +8,7 @@
   <img src="src/main/resources/images/github/screenshot.png" alt="Logo" >
 </p>
 
-<p align="center">( Currently in development )</p>
+<p align="center">(Currently in development)</p>
 
 ## About
 **Kraken** is a **Cloud Service** designed to store and manage unlicensed (cracked) game saves. The project provides a convenient way to synchronize game data between different devices.
@@ -22,3 +22,4 @@
 * Integrated access to Steam API for retrieving game information
 * Directory monitoring to detect game save files
 * Responsive user interface with personal game library
+* Multithreaded functionality for service performance and responsiveness
