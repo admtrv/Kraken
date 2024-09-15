@@ -1,4 +1,4 @@
-package client.loading;
+package client.managers;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class EnvLoader {
+public class EnvManager {
     private static final Map<String, String> env = new HashMap<>();
 
     static {

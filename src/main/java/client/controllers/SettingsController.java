@@ -13,7 +13,7 @@ public class SettingsController {
         Thread updateThread = new Thread(() -> {
             try {
 
-                SteamCoverFetcher.updateGamesFile();
+                SteamCoverFetcher.updateSteamGames();
                 System.out.println("Steam games file updated successfully.");
             } catch (IOException e) {
 

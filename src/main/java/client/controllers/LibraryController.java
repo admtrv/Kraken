@@ -1,7 +1,7 @@
 package client.controllers;
 
 import client.entities.*;
-import client.loading.*;
+import client.managers.*;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -13,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,12 +34,18 @@ public class LibraryController {
     private final List<VBox> cards = new ArrayList<>(); // Список для хранения карточек
     private List<Game> games = new ArrayList<>(); // Список для хранения игр
 
-    private final GameLoader gameLoader = new GameLoader();
 
     @FXML
     public void initialize() {
         // Загрузка игр в отдельном потоке
-        new Thread(this::initializeGames).start();
+        new Thread(() -> {
+            try {
+                initializeGames();
+            } catch (SQLException e) {
+                System.err.println("Error initializing games: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }).start();
 
         Platform.runLater(() -> {
             Scene scene = gamesGrid.getScene();
@@ -51,8 +58,8 @@ public class LibraryController {
         });
     }
 
-    private void initializeGames() {
-        games = gameLoader.loadGames();
+    private void initializeGames() throws SQLException {
+        games = DataBaseManager.loadGames();
         if (games != null) {
             for (Game game : games) {
                 // Запуск потока для добавления карточки игры

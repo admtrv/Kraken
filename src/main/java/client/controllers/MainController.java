@@ -2,7 +2,6 @@ package client.controllers;
 
 import client.*;
 import client.entities.*;
-import client.loading.*;
 import client.session.*;
 
 import javafx.application.Platform;

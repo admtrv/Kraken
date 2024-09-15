@@ -1,6 +1,6 @@
 package client.entities;
 
-import client.loading.*;
+import client.managers.*;
 import client.scripts.*;
 
 import java.io.File;
@@ -8,14 +8,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 
 public class Game {
+    private Integer steamId;
     private String title;
     private String coverUrl;
     private Path gameFolderPath;
     private Path stateFilePath;
 
-    public Game(String title, String coverUrl, Path gameFolderPath, Path stateFilePath) {
+    public Game(Integer steamId, String title, String coverUrl, Path gameFolderPath, Path stateFilePath) {
+        this.steamId = steamId;
         this.title = title;
         this.coverUrl = coverUrl;
         this.gameFolderPath = gameFolderPath;
@@ -25,11 +28,20 @@ public class Game {
     @Override
     public String toString() {
         return "Game{" +
-                "title='" + title + '\'' +
+                "steamId='" + steamId + '\'' +
+                ", title='" + title + '\'' +
                 ", coverUrl='" + coverUrl + '\'' +
                 ", gameFolderPath='" + gameFolderPath + '\'' +
                 ", stateFilePath='" + stateFilePath + '\'' +
                 '}';
+    }
+
+    public Integer getSteamId() {
+        return steamId;
+    }
+
+    public void setSteamId(Integer steamId) {
+        this.steamId = steamId;
     }
 
     public String getTitle() {
@@ -64,7 +76,7 @@ public class Game {
         this.stateFilePath = stateFilePath;
     }
 
-    public static boolean addGame(String gameFolderPath) throws IOException {
+    public static boolean addGame(String gameFolderPath) throws IOException, SQLException {
         // Извлечение названия игры из папки
         String gameTitle = Game.extractGameTitle(gameFolderPath);
         System.out.println("Extracted game title: " + gameTitle);
@@ -93,8 +105,7 @@ public class Game {
             monitor.monitor();
 
             // Сохранение игры в JSON
-            GameLoader gameLoader = new GameLoader();
-            gameLoader.addGame(game);
+            DataBaseManager.addGame(game);
 
             return true;
         } else {

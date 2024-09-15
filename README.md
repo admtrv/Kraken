@@ -20,6 +20,8 @@
 
 ## Already Implemented Features
 * Integrated access to Steam API for retrieving game information
-* Directory monitoring to detect game save files
+* Redis integration for fast processing and caching of data from API
+* SQLite database for storing and managing local game data efficiently
+* Directory monitoring to detect game save files and their changes
 * Responsive user interface with personal game library
-* Multithreaded functionality for service performance and responsiveness
+* Multithreading functionality for service performance and responsiveness

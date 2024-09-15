@@ -20,7 +20,7 @@ public class Router {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            System.err.println("Error loading main layout");
+            System.err.println("Error managers main layout");
             e.printStackTrace();
         }
     }
@@ -36,7 +36,7 @@ public class Router {
             Node content = fxmlLoader.load();
             mainController.setContent(content);
         } catch (IOException e) {
-            System.err.println("Error loading content: " + fxmlFile);
+            System.err.println("Error managers content: " + fxmlFile);
             e.printStackTrace();
         }
     }

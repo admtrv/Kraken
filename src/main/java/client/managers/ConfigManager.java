@@ -1,4 +1,4 @@
-package client.loading;
+package client.managers;
 
 import client.entities.*;
 
@@ -9,12 +9,12 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.IOException;
 
-public class ConfigLoader {
+public class ConfigManager {
     private static final String CONFIG_FILE_PATH = "/config.json";
 
     public static Config loadConfig() {
         Config config = null;
-        try (Reader reader = new InputStreamReader(ConfigLoader.class.getResourceAsStream(CONFIG_FILE_PATH))) {
+        try (Reader reader = new InputStreamReader(ConfigManager.class.getResourceAsStream(CONFIG_FILE_PATH))) {
 
             Gson gson = new Gson();
             config = gson.fromJson(reader, Config.class);

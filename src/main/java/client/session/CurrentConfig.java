@@ -1,14 +1,14 @@
 package client.session;
 
 import client.entities.*;
-import client.loading.*;
+import client.managers.*;
 
 public class CurrentConfig {
     private static volatile CurrentConfig instance;
     private Config config;
 
     private CurrentConfig() {
-        this.config = ConfigLoader.loadConfig();
+        this.config = ConfigManager.loadConfig();
     }
 
     public static CurrentConfig getInstance() {
