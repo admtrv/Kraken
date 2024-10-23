@@ -11,10 +11,10 @@
 <p align="center">(Currently in development)</p>
 
 ## About
-**Kraken** is a **Cloud Service** designed to store and manage unlicensed (cracked) game saves. The project provides a convenient way to synchronize game data between different devices.
+**Kraken** is a **Cloud Service** designed to store and manage game saves. The project provides a convenient way to synchronize game data between different devices.
 
 ## Requirements
-* Support for storing game saves for multiple users
+* Support for storing game saves from multiple devices
 * Ability to upload and download save files
 * Data security (encryption and authentication)
 
